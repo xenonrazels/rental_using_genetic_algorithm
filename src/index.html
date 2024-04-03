@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendation System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        .recommendation-container {
+            margin-top: 20px;
+        }
+
+        .recommendation {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .underline-bold {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .recommendation-content {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Get Recommendations</h1>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <input type="text" name="username" placeholder="Enter Username">
+            <input type="submit" value="Get Recommendations">
+        </form>
+
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username'])) {
+            // Function to execute a Python script and return the output in a safer way
+            function executePythonScript($scriptPath, $username)
+            {
+                $command = "python " . $scriptPath . " " . escapeshellarg($username);
+                $output = shell_exec($command);
+
+                // Extract JSON portion from output
+                $jsonStart = strpos($output, '[');
+                $jsonEnd = strrpos($output, ']');
+                $jsonOutput = substr($output, $jsonStart, $jsonEnd - $jsonStart + 1);
+
+                // Check if the extracted portion is valid JSON
+                $decodedOutput = json_decode($jsonOutput, true);
+                if ($decodedOutput !== null) {
+                    return $decodedOutput;
+                } else {
+                    return ["error" => "Output is not valid JSON: $jsonOutput"];
+                }
+            }
+
+            // Call the Python script for data preprocessing, recommendation, and formatting
+            $pythonScriptPath = "D:/WORK/major_proj_karuna/bikerental/src/final_model.py"; // Specify the path to your Python script
+            $username = $_POST['username']; // Assuming you're retrieving the username from a POST request
+            $recommendations = executePythonScript($pythonScriptPath, $username);
+
+            // Check if recommendations were obtained successfully
+            if (isset($recommendations["error"])) {
+                // Print error message if there was an issue with executing the Python script
+                echo "<p>Error: " . $recommendations["error"] . "</p>";
+            } else {
+                // Check if recommendations array is empty
+                if (empty($recommendations)) {
+                    echo "<p>No recommendations found.</p>";
+                } else {
+                    // Print recommendations
+                    echo "<div class='recommendation-container'>";
+                    foreach ($recommendations as $recommendation) {
+                        echo "<div class='recommendation'>";
+                        echo "<p><span class='underline-bold'>VehicleId:</span> <span class='recommendation-content'>" . $recommendation['VehicleId'] . "</span></p>";
+                        echo "<p><span class='underline-bold'>VehiclesTitle:</span> <span class='recommendation-content'>" . $recommendation['VehiclesTitle'] . "</span></p>";
+                        echo "<p><span class='underline-bold'>PricePerDay(Npr):</span> <span class='recommendation-content'>" . $recommendation['PricePerDay(Npr)'] . "</span></p>";
+                        echo "<p><span class='underline-bold'>AirConditioner:</span> <span class='recommendation-content'>" . $recommendation['AirConditioner'] . "</span></p>";
+                        echo "<p><span class='underline-bold'>AntiLockBrakingSystem:</span> <span class='recommendation-content'>" . $recommendation['AntiLockBrakingSystem'] . "</span></p>";
+                        echo "<p><span class='underline-bold'>DriverAirbag:</span> <span class='recommendation-content'>" . $recommendation['DriverAirbag'] . "</span></p>";
+                        echo "<p><span class='underline-bold'>PassengerAirbag:</span> <span class='recommendation-content'>" . $recommendation['PassengerAirbag'] . "</span></p>";
+                        echo "<p><span class='underline-bold'>LeatherSeats:</span> <span class='recommendation-content'>" . $recommendation['LeatherSeats'] . "</span></p>";
+                        echo "</div>";
+                    }
+                    echo "</div>"; // End of .recommendation-container
+                }
+            }
+        }
+        ?>
+    </div>
+</body>
+
+</html>

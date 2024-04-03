@@ -1,0 +1,12 @@
+{
+    "folders": [
+        {
+            "path": "../"
+        }
+    ],
+    // "python.linting.enabled": true,
+    // "python.linting.lintOnSave": true,
+    // "python.linting.pylintEnabled": true,
+    // "python.linting.pylintPath": "${workspaceFolder}/src/.venv//pylint",
+    "python.pythonPath": "${workspaceFolder}/src/.venv/Scripts/python"
+}

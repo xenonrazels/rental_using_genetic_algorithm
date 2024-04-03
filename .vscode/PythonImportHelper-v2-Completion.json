@@ -1,0 +1,322 @@
+[
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "pymysql",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pymysql",
+        "description": "pymysql",
+        "detail": "pymysql",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "base",
+        "importPath": "deap",
+        "description": "deap",
+        "isExtraImport": true,
+        "detail": "deap",
+        "documentation": {}
+    },
+    {
+        "label": "creator",
+        "importPath": "deap",
+        "description": "deap",
+        "isExtraImport": true,
+        "detail": "deap",
+        "documentation": {}
+    },
+    {
+        "label": "tools",
+        "importPath": "deap",
+        "description": "deap",
+        "isExtraImport": true,
+        "detail": "deap",
+        "documentation": {}
+    },
+    {
+        "label": "algorithms",
+        "importPath": "deap",
+        "description": "deap",
+        "isExtraImport": true,
+        "detail": "deap",
+        "documentation": {}
+    },
+    {
+        "label": "base",
+        "importPath": "deap",
+        "description": "deap",
+        "isExtraImport": true,
+        "detail": "deap",
+        "documentation": {}
+    },
+    {
+        "label": "creator",
+        "importPath": "deap",
+        "description": "deap",
+        "isExtraImport": true,
+        "detail": "deap",
+        "documentation": {}
+    },
+    {
+        "label": "tools",
+        "importPath": "deap",
+        "description": "deap",
+        "isExtraImport": true,
+        "detail": "deap",
+        "documentation": {}
+    },
+    {
+        "label": "algorithms",
+        "importPath": "deap",
+        "description": "deap",
+        "isExtraImport": true,
+        "detail": "deap",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "preprocess_data",
+        "importPath": "final_model",
+        "description": "final_model",
+        "isExtraImport": true,
+        "detail": "final_model",
+        "documentation": {}
+    },
+    {
+        "label": "recommendation_function",
+        "importPath": "final_model",
+        "description": "final_model",
+        "isExtraImport": true,
+        "detail": "final_model",
+        "documentation": {}
+    },
+    {
+        "label": "format_recommendations",
+        "importPath": "final_model",
+        "description": "final_model",
+        "isExtraImport": true,
+        "detail": "final_model",
+        "documentation": {}
+    },
+    {
+        "label": "is_valid_email",
+        "kind": 2,
+        "importPath": "src.personalized_recommendation",
+        "description": "src.personalized_recommendation",
+        "peekOfCode": "def is_valid_email(email):\n    \"\"\"\n    Checks if the provided string is a valid email address.\n    \"\"\"\n    # Regular expression pattern for email validation\n    pattern = r'^[\\w\\.-]+@[\\w\\.-]+\\.\\w+$'\n    return re.match(pattern, email) is not None\ndef fetch_user_email(username):\n    \"\"\"\n    Fetches the user_email associated with the provided username or email from the database.",
+        "detail": "src.personalized_recommendation",
+        "documentation": {}
+    },
+    {
+        "label": "fetch_user_email",
+        "kind": 2,
+        "importPath": "src.personalized_recommendation",
+        "description": "src.personalized_recommendation",
+        "peekOfCode": "def fetch_user_email(username):\n    \"\"\"\n    Fetches the user_email associated with the provided username or email from the database.\n    \"\"\"\n    connection = None  # Initialize connection variable\n    try:\n        # Check if the provided username is an email address\n        if is_valid_email(username):\n            return username\n        # Connect to the MySQL database",
+        "detail": "src.personalized_recommendation",
+        "documentation": {}
+    },
+    {
+        "label": "preprocess_data",
+        "kind": 2,
+        "importPath": "src.personalized_recommendation",
+        "description": "src.personalized_recommendation",
+        "peekOfCode": "def preprocess_data(user_email):\n    \"\"\"\n    Connects to a MySQL database, retrieves vehicle data associated with the user,\n    preprocesses it, and returns a pandas DataFrame.\n    \"\"\"\n    # Connect to the MySQL database\n    connection = pymysql.connect(host='127.0.0.1',\n                                 port=3306,\n                                 user='root',\n                                 password='',",
+        "detail": "src.personalized_recommendation",
+        "documentation": {}
+    },
+    {
+        "label": "recommendation_function",
+        "kind": 2,
+        "importPath": "src.personalized_recommendation",
+        "description": "src.personalized_recommendation",
+        "peekOfCode": "def recommendation_function(preprocessed_data):\n    # Determine the count of vehicles retrieved from the database\n    num_vehicles = len(preprocessed_data)\n    # Set population size based on the count of vehicles\n    population_size = min(num_vehicles, 10)  # Limit population size to a maximum of 10\n    # Define the fitness function\n    def evaluate(individual):\n        score = 0\n        relevant_features = ['PricePerDay', 'AntiLockBrakingSystem', 'CrashSensor', 'CentralLocking', 'LeatherSeats']\n        for i in range(len(individual)):",
+        "detail": "src.personalized_recommendation",
+        "documentation": {}
+    },
+    {
+        "label": "format_recommendations",
+        "kind": 2,
+        "importPath": "src.personalized_recommendation",
+        "description": "src.personalized_recommendation",
+        "peekOfCode": "def format_recommendations(recommendations):\n    formatted_recommendations = []\n    for rec in recommendations[:5]:\n        formatted_rec = {\n            \"VehicleId\": int(rec['id']),\n            \"VehiclesTitle\": rec['VehiclesTitle'],\n            \"PricePerDay(Npr)\": round(float(rec['PricePerDay']), 2),\n            \"AirConditioner\": 'Yes' if rec['AirConditioner'] == 1 else 'No',\n            \"AntiLockBrakingSystem\": 'Yes' if rec['AntiLockBrakingSystem'] == 1 else 'No',\n            \"DriverAirbag\": 'Yes' if rec['DriverAirbag'] == 1 else 'No',",
+        "detail": "src.personalized_recommendation",
+        "documentation": {}
+    },
+    {
+        "label": "save_recommendations_to_database",
+        "kind": 2,
+        "importPath": "src.personalized_recommendation",
+        "description": "src.personalized_recommendation",
+        "peekOfCode": "def save_recommendations_to_database(username, recommendations):\n    \"\"\"\n    Saves recommendations for a specific user to the database.\n    \"\"\"\n    connection = None\n    try:\n        # Connect to the MySQL database\n        connection = pymysql.connect(host='127.0.0.1',\n                                     port=3306,\n                                     user='root',",
+        "detail": "src.personalized_recommendation",
+        "documentation": {}
+    },
+    {
+        "label": "get_recommendation",
+        "kind": 2,
+        "importPath": "src.personalized_recommendation",
+        "description": "src.personalized_recommendation",
+        "peekOfCode": "def get_recommendation(username):\n    user_email = fetch_user_email(username)\n    if user_email:\n        data = preprocess_data(user_email)\n        recommendations = recommendation_function(data)\n        formatted_recommendations = format_recommendations(recommendations)\n        save_recommendations_to_database(username, formatted_recommendations)\n        return json.dumps(formatted_recommendations)  # Convert recommendations to JSON format\n    else:\n        return json.dumps({\"error\": \"User not found.\"})  # Return error message in JSON format",
+        "detail": "src.personalized_recommendation",
+        "documentation": {}
+    },
+    {
+        "label": "get_recommendations",
+        "kind": 2,
+        "importPath": "test.model_test.flasK_api",
+        "description": "test.model_test.flasK_api",
+        "peekOfCode": "def get_recommendations():\n    # Preprocess the data\n    data = preprocess_data()\n    # Get recommendations\n    recommendations = recommendation_function(data)\n    # Format recommendations\n    formatted_output = format_recommendations(recommendations)\n    # Return formatted recommendations as JSON\n    return jsonify({'recommendations': formatted_output})\n# Prevent running the app in Jupyter Notebook",
+        "detail": "test.model_test.flasK_api",
+        "documentation": {}
+    },
+    {
+        "label": "run_flask_app",
+        "kind": 2,
+        "importPath": "test.model_test.flasK_api",
+        "description": "test.model_test.flasK_api",
+        "peekOfCode": "def run_flask_app():\n    if __name__ == '__main__' and '__file__' not in globals():\n        app.run(debug=True)\nrun_flask_app()",
+        "detail": "test.model_test.flasK_api",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "test.model_test.flasK_api",
+        "description": "test.model_test.flasK_api",
+        "peekOfCode": "app = Flask(__name__)\n# Define route for getting recommendations\n@app.route('/recommendations', methods=['GET'])\ndef get_recommendations():\n    # Preprocess the data\n    data = preprocess_data()\n    # Get recommendations\n    recommendations = recommendation_function(data)\n    # Format recommendations\n    formatted_output = format_recommendations(recommendations)",
+        "detail": "test.model_test.flasK_api",
+        "documentation": {}
+    },
+    {
+        "label": "preprocess_data",
+        "kind": 2,
+        "importPath": "test.php_final.final_model",
+        "description": "test.php_final.final_model",
+        "peekOfCode": "def preprocess_data():\n    \"\"\"\n    Connects to a MySQL database, retrieves vehicle data,\n    preprocesses it, and returns a pandas DataFrame.\n    \"\"\"\n    # Connect to the MySQL database\n    connection = pymysql.connect(host='127.0.0.1',\n                                 port=3306,\n                                 user='root',\n                                 password='',",
+        "detail": "test.php_final.final_model",
+        "documentation": {}
+    },
+    {
+        "label": "recommendation_function",
+        "kind": 2,
+        "importPath": "test.php_final.final_model",
+        "description": "test.php_final.final_model",
+        "peekOfCode": "def recommendation_function(preprocessed_data):\n    # Define the fitness function\n    def evaluate(individual):\n        score = 0\n        for i in range(len(individual)):\n            if individual[i] == 1:\n                # Assuming 'PricePerDay' is a relevant feature for score calculation\n                score += preprocessed_data.loc[i, 'PricePerDay']\n        return (score,)\n    # Create the individual class and population",
+        "detail": "test.php_final.final_model",
+        "documentation": {}
+    },
+    {
+        "label": "format_recommendations",
+        "kind": 2,
+        "importPath": "test.php_final.final_model",
+        "description": "test.php_final.final_model",
+        "peekOfCode": "def format_recommendations(recommendations):\n    formatted_recommendations = []\n    for rec in recommendations[:5]:\n        formatted_rec = {\n            \"VehicleId\": int(rec['id']),\n            \"VehiclesTitle\": rec['VehiclesTitle'],\n            \"PricePerDay(Npr)\": round(float(rec['PricePerDay']), 2),\n            \"AirConditioner\": 'Yes' if rec['AirConditioner'] == 1 else 'No',\n            \"AntiLockBrakingSystem\": 'Yes' if rec['AntiLockBrakingSystem'] == 1 else 'No',\n            \"DriverAirbag\": 'Yes' if rec['DriverAirbag'] == 1 else 'No',",
+        "detail": "test.php_final.final_model",
+        "documentation": {}
+    },
+    {
+        "label": "get_recommendation",
+        "kind": 2,
+        "importPath": "test.php_final.final_model",
+        "description": "test.php_final.final_model",
+        "peekOfCode": "def get_recommendation():\n    data = preprocess_data()\n    recommendations = recommendation_function(data)\n    return recommendations\n# Call get_recommendation to get recommendations\nrecommendations = get_recommendation()\n# Format recommendations and print JSON output\nformatted_recommendations = format_recommendations(recommendations)\njson_output = json.dumps(formatted_recommendations)\nprint(json_output)",
+        "detail": "test.php_final.final_model",
+        "documentation": {}
+    },
+    {
+        "label": "recommendations",
+        "kind": 5,
+        "importPath": "test.php_final.final_model",
+        "description": "test.php_final.final_model",
+        "peekOfCode": "recommendations = get_recommendation()\n# Format recommendations and print JSON output\nformatted_recommendations = format_recommendations(recommendations)\njson_output = json.dumps(formatted_recommendations)\nprint(json_output)",
+        "detail": "test.php_final.final_model",
+        "documentation": {}
+    },
+    {
+        "label": "formatted_recommendations",
+        "kind": 5,
+        "importPath": "test.php_final.final_model",
+        "description": "test.php_final.final_model",
+        "peekOfCode": "formatted_recommendations = format_recommendations(recommendations)\njson_output = json.dumps(formatted_recommendations)\nprint(json_output)",
+        "detail": "test.php_final.final_model",
+        "documentation": {}
+    },
+    {
+        "label": "json_output",
+        "kind": 5,
+        "importPath": "test.php_final.final_model",
+        "description": "test.php_final.final_model",
+        "peekOfCode": "json_output = json.dumps(formatted_recommendations)\nprint(json_output)",
+        "detail": "test.php_final.final_model",
+        "documentation": {}
+    }
+]

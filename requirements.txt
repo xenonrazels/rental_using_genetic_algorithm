@@ -1,0 +1,16 @@
+blinker
+click
+colorama
+deap
+Flask
+itsdangerous
+Jinja2
+MarkupSafe
+numpy
+pandas
+PyMySQL
+python-dateutil
+pytz
+six
+tzdata
+Werkzeug
